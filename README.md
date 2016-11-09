@@ -1,24 +1,16 @@
-# README
+# Ironhack Rails Week Day 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+to clone this repo do:
 
-Things you may want to cover:
+first go the place in disk where you want to put the repo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+# download the source code to the folder ironhack (default)
+git clone https://github.com/joahking/ironhack.git
+# go to the directory
+cd ironhack
+# create and seed the db
+rails db:setup
+# to bring further changes (later)
+git pull
+```
