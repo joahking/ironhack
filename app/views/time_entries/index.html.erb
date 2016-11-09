@@ -1,0 +1,17 @@
+<h1>Time Entries for project <%= @project.name %></h1>
+
+<% @time_entries.each do |time_entry| %>
+  <ul>
+    <li>
+      Date = <%= time_entry.date %>
+    </li>
+    <li>
+      Duration (HH::MM) = <%= time_entry.hours %>:<%= time_entry.minutes %>
+    </li>
+    <li>
+      Comment = <%= time_entry.comment %>
+    </li>
+  </ul>
+<% end %>
+<br/>
+<%= link_to 'Back to project', project_path(@project.id) %>
