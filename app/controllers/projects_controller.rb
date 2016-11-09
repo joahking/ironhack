@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   # Show a form to create a project
   def new
     @project = Project.new
+    @errors = []
   end
 
   # POST /projects
@@ -22,8 +23,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(name: params[:project][:name],
                            description: params[:project][:description])
-    @project.save
-
-    redirect_to project_path(@project.id)
+    if @project.save
+      redirect_to project_path(@project.id)
+    else
+      @errors = @project.errors.full_messages
+      render 'new'
+    end
   end
 end
