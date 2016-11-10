@@ -30,4 +30,33 @@ class ProjectsController < ApplicationController
       render 'new'
     end
   end
+
+  # GET /projects/:id/edit
+  # Show a form to edit a project
+  def edit
+    @project = Project.find params[:id]
+    @errors = []
+
+    render 'new'
+  end
+
+  # PATCH /projects/:id
+  # Updates a project
+  def update
+    @project = Project.find params[:id]
+
+    if @project.update project_params
+      redirect_to project_path(@project.id)
+    else
+      @errors = @project.errors.full_messages
+      render 'new'
+    end
+  end
+
+  protected
+
+  # Strong parameters http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
+  def project_params
+    params.require(:project).permit(:name, :description)
+  end
 end
