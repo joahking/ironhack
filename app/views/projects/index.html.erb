@@ -1,9 +1,13 @@
 <h1>Projects</h1>
+
 <ul>
   <% @projects.each do |project| %>
     <li>
       <%= link_to project.name, project_path(project.id) %>
       <%= " - #{project.description}" if project.description.present? %>
+      |
+      <%= link_to('Delete', project_path(project.id), method: :delete,
+                  data: { confirm: 'Are you sure you want to delete?' }) %>
     </li>
   <% end %>
 </ul>

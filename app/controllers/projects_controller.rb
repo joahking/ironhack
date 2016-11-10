@@ -53,6 +53,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # DELETE /projects/:id
+  # Deletes a project
+  def destroy
+    @project = Project.find params[:id]
+    @project.destroy
+    redirect_to projects_path, notice: 'The project was deleted'
+  end
+
   protected
 
   # Strong parameters http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
