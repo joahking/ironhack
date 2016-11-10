@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     @project = Project.new project_params
 
     if @project.save
+      flash[:notice] = 'The project was created'
       redirect_to project_path(@project.id)
     else
       @errors = @project.errors.full_messages
@@ -44,7 +45,7 @@ class ProjectsController < ApplicationController
     @project = Project.find params[:id]
 
     if @project.update project_params
-      redirect_to project_path(@project.id)
+      redirect_to project_path(@project.id), notice: 'The project was updated'
     else
       @errors = @project.errors.full_messages
       render 'new'
