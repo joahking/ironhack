@@ -36,8 +36,6 @@ class ProjectsController < ApplicationController
   def edit
     @project = Project.find params[:id]
     @errors = []
-
-    render 'new'
   end
 
   # PATCH /projects/:id

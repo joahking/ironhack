@@ -1,23 +1,7 @@
 <h1>New project</h1>
 
-<% if @errors.any? %>
-<p>There were errors creating the project:</p>
-<ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<%= form_for @project do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <br/>
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-  <br/>
-  <%= form.button %>
-<% end %>
+<%= render 'errors', title: "There were errors creating the project:" %>
+<%= render 'form' %>
 
 <br/>
 <%= link_to 'Cancel', projects_path %>

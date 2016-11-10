@@ -1,0 +1,7 @@
+<h1>Edit project <%= @project.name %></h1>
+
+<%= render 'errors', title: "There were errors editing the project:" %>
+<%= render 'form' %>
+
+<br/>
+<%= link_to 'Cancel', projects_path %>
