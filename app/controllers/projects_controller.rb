@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # Lists all projects
   def index
+    @page_title = "All projects"
     @projects = Project.order(created_at: :desc).limit(10)
   end
 
@@ -9,6 +10,7 @@ class ProjectsController < ApplicationController
   # Show details of a project
   def show
     @project = Project.find params[:id]
+    @page_title = "Project #{@project.name}"
   end
 
   # GET /projects/new
