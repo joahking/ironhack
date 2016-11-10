@@ -21,8 +21,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # Creates a project
   def create
-    @project = Project.new(name: params[:project][:name],
-                           description: params[:project][:description])
+    @project = Project.new project_params
+
     if @project.save
       redirect_to project_path(@project.id)
     else
